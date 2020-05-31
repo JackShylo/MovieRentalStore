@@ -10,6 +10,12 @@ using System.Windows.Forms;
 
 namespace MovieRentalStore
 {
+    // TODO: 
+    // Ideally the Handlers would return any errors with information
+    // What can I unit test?
+    // Rental_Cost column is unused
+    // Should I be passing variables through from front end or create individual methods in handlers?
+
     public partial class Form1 : Form
     {
         // Instanciate Class
