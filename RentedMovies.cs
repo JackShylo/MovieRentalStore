@@ -11,9 +11,43 @@ namespace MovieRentalStore
     {
         Database rentedMoviesDatabase = new Database();
 
-        public DataView ReadEntries(string selectFields, string tableName, string whereClause)
+        public DataView ReadEntries()
         {
+            string selectFields = "*";
+            string tableName = "RentedMovies_v_Customer_v_Movies";
+            string whereClause = "";
+            return rentedMoviesDatabase.ReadEntries(selectFields, tableName, whereClause);
+        }
 
+        public DataView ReadMostPopularMovies()
+        {
+            string selectFields = "Title, count(*) as Amount";
+            string tableName = "RentedMovies_v_Customer_v_Movies";
+            string whereClause = "GROUP BY Title ORDER BY Amount DESC";
+            return rentedMoviesDatabase.ReadEntries(selectFields, tableName, whereClause);
+        }
+
+        public DataView ReadBestCustomers()
+        {
+            string selectFields = "FirstName, count(*) as Amount";
+            string tableName = "RentedMovies_v_Customer_v_Movies";
+            string whereClause = "GROUP BY FirstName ORDER BY Amount DESC";
+            return rentedMoviesDatabase.ReadEntries(selectFields, tableName, whereClause);
+        }
+
+        public DataView ReadAvailableMovies()
+        {
+            string selectFields = "*";
+            string tableName = "RentedMovies_v_Customer_v_Movies";
+            string whereClause = "WHERE DateReturned IS NOT NULL";
+            return rentedMoviesDatabase.ReadEntries(selectFields, tableName, whereClause);
+        }
+
+        public DataView ReadRentedOutMovies()
+        {
+            string selectFields = "*";
+            string tableName = "RentedMovies_v_Customer_v_Movies";
+            string whereClause = "WHERE DateReturned IS NULL";
             return rentedMoviesDatabase.ReadEntries(selectFields, tableName, whereClause);
         }
 

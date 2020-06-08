@@ -14,11 +14,10 @@ namespace MovieRentalStore
     // Ideally the Handlers would return any errors with information
     // What can I unit test?
     // Rental_Cost column is unused
-    // Should I be passing variables through from front end or create individual methods in handlers?
 
     public partial class Form1 : Form
     {
-        // Instanciate Class
+        // Instantiate Class
         Movies myMovies = new Movies();
         RentedMovies myRentedMovies = new RentedMovies();
         Customers myCustomers = new Customers();
@@ -160,10 +159,7 @@ namespace MovieRentalStore
         // Read RentedMovies 
         private void btnRentedMoviesTab_Click(object sender, EventArgs e)
         {
-            string selectFields = "*";
-            string tableName = "RentedMovies_v_Customer_v_Movies";
-            string whereClause = "";
-            dgvMain.DataSource = myRentedMovies.ReadEntries(selectFields, tableName, whereClause);
+            dgvMain.DataSource = myRentedMovies.ReadEntries();
             selectedData = "RentedMovies";
             updateMovieRadioButtons();
         }
@@ -171,39 +167,33 @@ namespace MovieRentalStore
         // Read Most Popular Movies
         private void btnMostPopularTab_Click(object sender, EventArgs e)
         {
-            string selectFields = "Title, count(*) as Amount";
-            string tableName = "RentedMovies_v_Customer_v_Movies";
-            string whereClause = "GROUP BY Title ORDER BY Amount DESC";
-            dgvMain.DataSource = myRentedMovies.ReadEntries(selectFields, tableName, whereClause);
+            dgvMain.DataSource = myRentedMovies.ReadMostPopularMovies();
+            selectedData = "MostPopular";
             updateMovieRadioButtons();
         }
 
         // Read Best Customers
         private void btnBestCustomersTab_Click(object sender, EventArgs e)
         {
-            string selectFields = "FirstName, count(*) as Amount";
-            string tableName = "RentedMovies_v_Customer_v_Movies";
-            string whereClause = "GROUP BY FirstName ORDER BY Amount DESC";
-            dgvMain.DataSource = myRentedMovies.ReadEntries(selectFields, tableName, whereClause);
+            dgvMain.DataSource = myRentedMovies.ReadBestCustomers();
+            selectedData = "BestCustomers";
             updateMovieRadioButtons();
         }
 
         // Read Available Movies
         private void rbnAvailable_CheckedChanged(object sender, EventArgs e)
         {
-            string selectFields = "*";
-            string tableName = "RentedMovies_v_Customer_v_Movies";
-            string whereClause = "WHERE DateReturned IS NOT NULL";
-            dgvMain.DataSource = myRentedMovies.ReadEntries(selectFields, tableName, whereClause);
+            dgvMain.DataSource = myRentedMovies.ReadAvailableMovies();
+            selectedData = "AvailableMovies";
+            updateMovieRadioButtons();
         }
 
         // Read Non Available Movies
         private void rbnRentedOut_CheckedChanged(object sender, EventArgs e)
         {
-            string selectFields = "*";
-            string tableName = "RentedMovies_v_Customer_v_Movies";
-            string whereClause = "WHERE DateReturned IS NULL";
-            dgvMain.DataSource = myRentedMovies.ReadEntries(selectFields, tableName, whereClause);
+            dgvMain.DataSource = myRentedMovies.ReadRentedOutMovies();
+            selectedData = "RentedOut";
+            updateMovieRadioButtons();
         }
 
         /*                     */

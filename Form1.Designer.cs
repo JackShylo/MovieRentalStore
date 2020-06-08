@@ -90,7 +90,7 @@
             this.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMain.Location = new System.Drawing.Point(12, 30);
             this.dgvMain.Name = "dgvMain";
-            this.dgvMain.Size = new System.Drawing.Size(1010, 343);
+            this.dgvMain.Size = new System.Drawing.Size(1026, 343);
             this.dgvMain.TabIndex = 0;
             this.dgvMain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMain_CellClick);
             // 
@@ -414,7 +414,7 @@
             this.gbxCustomer.Controls.Add(this.btnCustomerUpdate);
             this.gbxCustomer.Location = new System.Drawing.Point(6, 381);
             this.gbxCustomer.Name = "gbxCustomer";
-            this.gbxCustomer.Size = new System.Drawing.Size(936, 73);
+            this.gbxCustomer.Size = new System.Drawing.Size(904, 73);
             this.gbxCustomer.TabIndex = 52;
             this.gbxCustomer.TabStop = false;
             this.gbxCustomer.Text = "CUSTOMER";
@@ -516,9 +516,9 @@
             this.gbxRentedMovies.Controls.Add(this.label14);
             this.gbxRentedMovies.Controls.Add(this.txtRMID);
             this.gbxRentedMovies.Enabled = false;
-            this.gbxRentedMovies.Location = new System.Drawing.Point(6, 594);
+            this.gbxRentedMovies.Location = new System.Drawing.Point(916, 383);
             this.gbxRentedMovies.Name = "gbxRentedMovies";
-            this.gbxRentedMovies.Size = new System.Drawing.Size(122, 77);
+            this.gbxRentedMovies.Size = new System.Drawing.Size(122, 71);
             this.gbxRentedMovies.TabIndex = 54;
             this.gbxRentedMovies.TabStop = false;
             this.gbxRentedMovies.Text = "RENTED MOVIES";
@@ -577,7 +577,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1225, 738);
+            this.ClientSize = new System.Drawing.Size(1053, 738);
             this.Controls.Add(this.btnBestCustomersTab);
             this.Controls.Add(this.btnMostPopularTab);
             this.Controls.Add(this.btnRentedMoviesTab);
